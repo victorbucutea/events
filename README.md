@@ -2,12 +2,36 @@
 Events Management
 =================
 
+## Install and run
+
+Clone the url 
+```
+git clone git clone https://github.com/victorbucutea/events
+```
+
+And build the project with Maven
+```
+mvn clean install
+```
+
+The unit tests will take ~20 min. This is due to the starting and stopping of the embedded glassfish server. In order to save time, you can just skip unit tests
+```
+mvn clean install -DskipTests=true
+```
+
+## Decisionts
+Glassfish application server because:
+* It comes with an embeddable EJB container, so unit&integration testing is much easier
+* The current gameduell infrastructure is largely based on glassfish, so it is a natural choice for this exercise.
+
+
 Stateful paginator bean because: 
 
 * It keeps the current page number in its own state, so the caller can just iterate through the result pages using the iterator pattern.
 * If this were a stateless bean, the caller will need to keep track of the current page and the page size.
 * Stateful beans are prone to increase memory footprint, but they are safe to use with any client. Because we do not know what type of client we will have
-  and we cannot rely on it to keep track of the page (e.g a UI client can only hold the current page for as long as the http session is active).
+  and we cannot rely on it to keep track of the page (e.g a UI client can only hold the current page for as long as the http session is active) a stateful
+  bean will have to do the job.
 * Can be easily configured to provide functionality like 'Number of results', 'Current Page', going back to previous page ,etc
 * Keeping track of paging in the client creates boilerplate code.
 
