@@ -25,7 +25,7 @@ Glassfish application server because:
 * The current gameduell infrastructure is largely based on glassfish, so it is a natural choice for this exercise.
 
 
-#Stateful paginator bean because: 
+###Stateful paginator bean because: 
 
 * It keeps the current page number in its own state, so the caller can just iterate through the result pages using the iterator pattern.
 * If this were a stateless bean, the caller will need to keep track of the current page and the page size.
@@ -36,7 +36,7 @@ Glassfish application server because:
 * Keeping track of paging in the client creates boilerplate code.
 
 
-#Singleton registered JMX bean because:
+###Singleton registered JMX bean because:
 
  * Custom MBeans have been removed in Glassfish 3.1, so the can only be declared programatically ( https://www.java.net/forum/topic/glassfish/glassfish/custom-mbeans )
  * Declaring it programatically we have no more appserver-specific configuration files.
@@ -46,7 +46,7 @@ Glassfish application server because:
  * Easier for the JMX MBean to poll for the current filter
  
  
-#Event Service will poll JMX bean for the current filters:
+###Event Service will poll JMX bean for the current filters:
 
 * We need to configure all instances of the EventService EJB to use a new query. We can do that by:
    * Having a value stored in JNDI which the EventService EJB can interogate ( reliable, but bad practice )
