@@ -19,7 +19,7 @@ The unit tests will take ~20 min. This is due to the starting and stopping of th
 mvn clean install -DskipTests=true
 ```
 
-## Decisionts
+## Arhitectural Decisions
 Glassfish application server because:
 * It comes with an embeddable EJB container, so unit&integration testing is much easier
 * The current gameduell infrastructure is largely based on glassfish, so it is a natural choice for this exercise.
