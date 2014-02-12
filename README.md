@@ -19,10 +19,14 @@ The unit tests will take ~20 min. This is due to the starting and stopping of th
 mvn clean install -DskipTests=true
 ```
 
+Once the build is finished, define a JDBC data source in your application server ( tested on Glassfish AS 3.1.2.2 ) with this JNDI name:
+```
+jdbc/eventsDS
+```
+
+Now just deploy the `events-ear/target/events.ear` file on the appserver.
+
 ## Arhitectural Decisions
-Glassfish application server because:
-* It comes with an embeddable EJB container, so unit&integration testing is much easier
-* The current gameduell infrastructure is largely based on glassfish, so it is a natural choice for this exercise.
 
 
 ###Stateful paginator bean because: 

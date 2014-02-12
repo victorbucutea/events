@@ -40,7 +40,7 @@
 					<glassfishDirectory>d:/software/application-servers/glassfish/glassfish3/glassfish</glassfishDirectory>
 					<components>
 						<component>
-							<name>e-recruiter</name>
+							<name>events</name>
 							<artifact>${project.build.directory}/${project.build.finalName}.ear</artifact>
 						</component>
 					</components>
