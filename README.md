@@ -1,3 +1,6 @@
+=================
+Events Management
+=================
 
 Stateful paginator bean because: 
 
@@ -18,13 +21,10 @@ Singleton registered JMX bean because:
  * Singleton can be injected into other components like EJBs, Interceptors, CDI 
  * Easier for the JMX MBean to poll for the current filter ( 
  
+ 
  Event Service will poll JMX bean for the current filters:
 
 * We need to configure all instances of the EventService EJB to use a new query. We can do that by:
    * Having a value stored in JNDI which the EventService EJB can interogate ( reliable, but bad practice )
    * Have the EventService EJB poll the JMX bean (which is also a Singleton) for the filters ( this is a scalable, maintainable and safe approach )
 * Using a notify mechanism for the JMX bean to notify the EventService EJB, would not be safe. Without a bit of hacking, we can not control all instances of the EJB present in memory
- 
- 
-
- 
