@@ -19,10 +19,10 @@ Singleton registered JMX bean because:
  * Its automatic (@Startup) registration and unregistration at the MBeanServer. This solves the redeployment issues like multiple registrations of the same bean 
  * Singleton is able to cache state and expose it on demand 
  * Singleton can be injected into other components like EJBs, Interceptors, CDI 
- * Easier for the JMX MBean to poll for the current filter ( 
+ * Easier for the JMX MBean to poll for the current filter
  
  
- Event Service will poll JMX bean for the current filters:
+Event Service will poll JMX bean for the current filters:
 
 * We need to configure all instances of the EventService EJB to use a new query. We can do that by:
    * Having a value stored in JNDI which the EventService EJB can interogate ( reliable, but bad practice )
